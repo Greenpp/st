@@ -5,7 +5,7 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
+static char *font = "Monospace:pixelsize=15:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -42,8 +42,8 @@ static unsigned int tripleclicktimeout = 600;
 int allowaltscreen = 1;
 
 /* frames per second st should at maximum draw to the screen */
-static unsigned int xfps = 120;
-static unsigned int actionfps = 30;
+static unsigned int xfps = 144;
+static unsigned int actionfps = 144;
 
 /*
  * blinking timeout (set to 0 to disable blinking) for the terminal blinking
@@ -66,7 +66,7 @@ const int boxdraw = 1;
 const int boxdraw_bold = 1;
 
 /* braille (U28XX):  1: render as adjacent "pixels",  0: use font */
-const int boxdraw_braille = 0;
+const int boxdraw_braille = 1;
 
 /*
  * bell volume. It must be a value between -100 and 100. Use 0 for disabling
@@ -99,32 +99,31 @@ float alpha = 0.8;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
+	"#1d2021",  /*  0: black          */
+	"#cc241d",  /*  1: red            */
+	"#98971a",  /*  2: green          */
+	"#d79921",  /*  3: yellow         */
+	"#458588",  /*  4: blue           */
+	"#b16286",  /*  5: magenta        */
+	"#689d6a",  /*  6: cyan           */
+	"#a89984",  /*  7: white          */
 
-	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
+	"#928374",  /*  8: bright black   */
+	"#fb4934",  /*  9: bright red     */
+	"#b8bb26",  /* 10: bright green   */
+	"#fabd2f",  /* 11: bright yellow  */
+	"#83a598",  /* 12: bright blue    */
+	"#d3869b",  /* 13: bright magenta */
+	"#8ec07c",  /* 14: bright cyan    */
+	"#ebdbb2",  /* 15: bright white   */
 
 	[255] = 0,
 
 	/* more colors can be added after 255 to use with DefaultXX */
 	"#cccccc",
 	"#555555",
-	"black",
+    "#ebdbb2",
+    "#282828",
 };
 
 
@@ -132,8 +131,8 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
  */
-unsigned int defaultfg = 7;
-unsigned int defaultbg = 258;
+unsigned int defaultfg = 258;
+unsigned int defaultbg = 259;
 static unsigned int defaultcs = 256;
 static unsigned int defaultrcs = 257;
 
@@ -144,7 +143,7 @@ static unsigned int defaultrcs = 257;
  * 6: Bar ("|")
  * 7: Snowman ("☃")
  */
-static unsigned int cursorshape = 2;
+static unsigned int cursorshape = 4;
 
 /*
  * Default columns and rows numbers
